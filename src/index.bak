@@ -1,0 +1,128 @@
+/* src/index.css */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+ */
+
+ 
+/* Importa Tailwind */
+@import 'tailwindcss';
+
+
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-heading: 'Montserrat', sans-serif;
+
+  /* Paleta de colores */
+  --color-light-bg: #F9FAFB;
+  --color-dark-bg: #0F172A;
+  --color-light-text: #1E293B;
+  --color-dark-text: #E2E8F0;
+  --color-light-heading: #0F172A;
+  --color-dark-heading: #F9FAFB;
+  --color-light-card: #FFFFFF;
+  --color-dark-card: #1E293B;
+  --color-light-border: #E5E7EB;
+  --color-dark-border: #334155;
+
+  /* Colores corporativos */
+  --color-primary-light: #2563EB;
+  --color-primary-dark: #3B82F6;
+  --color-secondary-light: #F97316;
+  --color-secondary-dark: #FB923C;
+  --color-accent-light: #84CC16;
+  --color-accent-dark: #A3E635;
+  --color-success-light: #22C55E;
+  --color-success-dark: #4ADE80;
+  --color-danger-light: #DC2626;
+  --color-danger-dark: #F87171;
+  --color-warning-light: #FACC15;
+  --color-warning-dark: #FDE047;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+
+/* ---------- BASE ---------- */
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-300;
+    @apply bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text;
+  }
+}
+
+/* ---------- COMPONENTES ---------- */
+@layer components {
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg 
+           font-semibold transition duration-200 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply btn text-white bg-primary-light dark:bg-primary-dark hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply btn text-white bg-secondary-light dark:bg-secondary-dark hover:opacity-90;
+  }
+
+  .btn-accent {
+    @apply btn text-white bg-accent-light dark:bg-accent-dark hover:opacity-90;
+  }
+
+  .btn-success {
+    @apply btn text-white bg-success-light dark:bg-success-dark hover:opacity-90;
+  }
+
+  .btn-danger {
+    @apply btn text-white bg-danger-light dark:bg-danger-dark hover:opacity-90;
+  }
+
+  .btn-warning {
+    @apply btn text-black bg-warning-light dark:bg-warning-dark hover:opacity-90;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-light-card dark:bg-dark-card border border-light-border 
+           dark:border-dark-border rounded-2xl shadow-md p-6 transition;
+  }
+
+  /* Encabezados */
+  .heading {
+    @apply font-heading font-bold text-2xl md:text-3xl 
+           text-light-heading dark:text-dark-heading;
+  }
+
+  /* Subtítulos */
+  .subheading {
+    @apply font-display text-lg md:text-xl text-secondary-light 
+           dark:text-secondary-dark;
+  }
+}
+
+/* ---------- UTILIDADES EXTRA ---------- */
+@layer utilities {
+  .smooth-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+/* ---------- HERO ---------- */
+.hero-bg {
+  @apply bg-cover bg-center bg-no-repeat;
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.2) 60%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
+}
