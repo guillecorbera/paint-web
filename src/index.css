@@ -14,7 +14,8 @@
   --breakpoint-xl: 1280px;
 
   /* Paleta de colores - Modo claro por defecto */
-  --color-light-bg: #F9FAFB;
+  /* --color-light-bg: #F9FAFB;*/
+  --color-light-bg: #f5f6f7;
   --color-dark-bg: #0F172A;
   --color-light-text: #1E293B;
   --color-dark-text: #E2E8F0;
@@ -85,7 +86,7 @@
 /* src/index.css */
 @layer components {
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll 20s linear infinite;
   }
 
   @keyframes scroll {

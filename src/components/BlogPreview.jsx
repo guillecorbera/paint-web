@@ -65,7 +65,7 @@ const { t, lang } = useContext(LangContext);
   ];
 
   return (
-    <section id="blog" className="py-24">
+    <section id="blog" className="py-24 bg-gradient-to-b from-blue-50 to-indigo-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16" data-aos="fade-down">
           <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">{t.blog?.title || 'Consejos & Tendencias'}</h2>

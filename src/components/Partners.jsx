@@ -18,7 +18,8 @@ const Partners = () => {
   ];
 
   return (
-    <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden">
+/*     <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden"> */
+    <section className="py-24 bg-gradient-to-b from-purple-50 to-pink-50 overflow-hidden">
       <div className="container mx-auto px-6">
         <h3 className="text-center text-lg font-semibold text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-12">
           {t.partners?.title || 'Trabajamos con las Mejores Marcas'}

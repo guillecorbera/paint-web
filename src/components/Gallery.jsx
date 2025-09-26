@@ -5,7 +5,7 @@ import { LangContext } from '../context/LangContext';
 import React from 'react'; // ✅ Añade esta línea
 
 const Gallery = () => {
-  const { t } = useContext(LangContext);
+  const { t, lang } = useContext(LangContext);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -88,7 +88,7 @@ const Gallery = () => {
   const [selectedView, setSelectedView] = useState('after'); // 'before' o 'after'
 
   return (
-    <section id="gallery" className="py-24">
+    <section id="gallery" className="py-24 bg-gradient-to-b from-yellow-50 to-green-50">
       <div className="container mx-auto px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">
@@ -105,7 +105,7 @@ const Gallery = () => {
               key={index}
               className="group relative overflow-hidden rounded-lg mb-4"
               data-aos="zoom-in-up"
-            >
+              >
               <img
                 src={project.after}
                 alt={`Después - ${project.title[t.lang]}`}
@@ -113,13 +113,13 @@ const Gallery = () => {
                 onClick={() => openLightbox(index, true)}
               />
               <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded">
-                {t.gallery?.after || 'Después'}
+                {t.gallery?.after}
               </div>
               <button
                 onClick={() => openLightbox(index, false)}
                 className="absolute bottom-3 right-3 bg-secondary hover:bg-yellow-500 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transition"
               >
-                {t.gallery?.before || 'Antes'}
+                {t.gallery?.before}
               </button>
             </div>
           ))}
@@ -194,13 +194,14 @@ const Gallery = () => {
               className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-secondary text-white font-medium px-4 py-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
             >
               {selectedView === 'after'
-                ? t.gallery?.before || 'Ver Antes'
-                : t.gallery?.after || 'Ver Después'}
+                ? t.gallery.viewBefore // || 'Ver Antes'
+                : t.gallery.viewAfter //|| 'Ver Después'
+                }
             </button>
 
             {/* Título del proyecto */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-center px-4 py-2 rounded-full text-sm max-w-xs truncate">
-              {projects[currentImageIndex].title[t.lang]}
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-sm bg-black/50 text-white text-center px-4 py-2 rounded-full max-w-xs truncate">
+              {projects[currentImageIndex].title[lang]}
             </div>
           </div>
         </div>

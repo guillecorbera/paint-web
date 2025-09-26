@@ -27,7 +27,8 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
+  /*   <section className="py-24 bg-gray-50 dark:bg-gray-800/50"> */
+          <section className="py-24 bg-gradient-to-b from-indigo-50 to-purple-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16" data-aos="fade-down">
           <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">{t.faq.title}</h2>
@@ -59,7 +60,7 @@ const FAQ = () => {
                 </svg>
               </button>
               <div
-                className={`faq-answer px-6 pb-6 text-gray-600 dark:text-gray-300 transition-all duration-300 overflow-hidden ${
+                className={`faq-answer px-6 pb-6 text-lg text-gray-600 dark:text-gray-300 transition-all duration-400 overflow-hidden ${
                   openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >

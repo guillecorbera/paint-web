@@ -94,7 +94,8 @@ icon: (
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-gray-50 dark:bg-gray-800/50">
+/*     <section id="why-us" className="py-24 bg-gray-50 dark:bg-gray-800/50"> */
+          <section id="why-us" className="py-24 bg-gradient-to-b from-orange-50 to-yellow-50">
       <div className="container mx-auto px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">

@@ -21,7 +21,8 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-800/50">
+/*     <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-800/50"></section> */
+    <section id="contact" className="py-24 bg-gradient-to-b from-pink-50 to-white">
       <div className="container mx-auto px-6">
         <div
           className="max-w-xl mx-auto bg-white dark:bg-gray-700 p-8 md:p-12 rounded-2xl shadow-2xl"

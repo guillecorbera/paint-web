@@ -65,7 +65,9 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gray-50 dark:bg-gray-800">
+/*     <section id="services" className="py-24 bg-gray-50 dark:bg-gray-800">
+ */    <section id="services" className="py-24 bg-gradient-to-b from-red-50 to-orange-50">
+
       <div className="container mx-auto px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">

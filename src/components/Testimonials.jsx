@@ -88,7 +88,8 @@ const Testimonials = () => {
   );
 
   return (
-    <section id="testimonials" className="py-24 bg-gray-50 dark:bg-gray-800/50">
+/*     <section id="testimonials" className="py-24 bg-gray-50 dark:bg-gray-800/50"> */
+    <section id="testimonials" className="py-24 bg-gradient-to-b from-green-50 to-teal-50">
       <div className="container mx-auto px-6" data-aos="fade-up">
         {/* Encabezado */}
         <div className="text-center mb-16">

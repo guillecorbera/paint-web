@@ -14,7 +14,8 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
+/*     <section className="py-24 bg-gray-50 dark:bg-gray-800/50"> */ 
+   <section className="py-24 bg-gradient-to-b from-teal-50 to-blue-50">
       <div className="container mx-auto px-6">
         <div
           className="bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-10 md:p-16 text-center"
