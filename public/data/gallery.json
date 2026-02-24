@@ -1,0 +1,99 @@
+[
+  {
+    "id": "proyecto-1",
+    "title": {
+      "es": "Pintura exterior - Edificio en Barcelona",
+      "ca": "Pintura exterior - Edifici a Barcelona",
+      "en": "Exterior Painting - Building in Barcelona"
+    },
+    "before": ["/images/IMG20240202093827.jpg"],
+    "inProgress": [
+      "/images/IMG20231104161759.jpg",
+      "/images/IMG20231104121118.jpg",
+      "/images/IMG20231104112148.jpg"
+    ],
+    "after": [
+      "/images/IMG20240217155611.jpg"
+    ]
+  },
+  {
+    "id": "proyecto-2",
+    "title": {
+      "es": "Ventanas de madera - Edificio en Barcelona", 
+      "ca": "Finestres de fusta - Edifici a Barcelona",
+      "en": "Wooden Windows - Building in Barcelona"
+    },
+    "before": ["/images/IMG20231028142542.jpg"],
+    "inProgress": ["/images/IMG20231028142550.jpg",
+                  "/images/IMG20231028142547.jpg"
+  ],
+    "after": [
+      "/images/IMG20231101135727.jpg",
+      "/images/IMG20220609131637.jpg"
+    ]
+  },
+  {
+    "id": "proyecto-3",
+    "title": {
+      "es": "Pavimento terraza - Casa familiar",
+      "ca": "Paviment terrassa - Casa familiar",
+      "en": "Terrace Flooring - Family Home"
+    },
+    "before": [
+      "/images/IMG20230817193638.jpg",
+      "/images/IMG20230817194126.jpg" 
+    ],
+
+    "inProgress": [
+      "/images/IMG20230930150821.jpg",
+      "/images/IMG20230930150851.jpg",
+      "/images/IMG20231001165903.jpg"
+    ],
+    "after": [
+      "/images/IMG20231001174455.jpg",
+      "/images/IMG20231001174441.jpg"
+    ]
+  },
+  {
+    "id": "proyecto-4",
+    "title": {
+      "es": "Pintura interior - Salón moderno",
+      "ca": "Pintura interior - Saló modern",
+      "en": "Interior Painting - Modern Living Room"
+    },
+    "before": ["/images/IMG20220223090653.jpg"],
+    "inProgress": ["/images/proyecto4-proceso1.jpg"],
+    "after": ["/images/IMG20220219145744.jpg"]
+  },
+  {
+    "id": "proyecto-5",
+    "title": {
+      "es": "Edificio residencial - Bloque de pisos",
+      "ca": "Edifici residencial - Bloc de pisos",
+      "en": "Residential Building - Apartment Block"
+    },
+    "before": ["/images/proyecto5-antes1.jpg"],
+    "inProgress": [
+      "/images/proyecto5-proceso1.jpg",
+      "/images/proyecto5-proceso2.jpg"
+    ],
+    "after": [
+      "/images/proyecto5-despues1.jpg",
+      "/images/proyecto5-despues2.jpg"
+    ]
+  },
+  {
+    "id": "proyecto-6",
+    "title": {
+      "es": "Pintura exterior - Chalet en montaña",
+      "ca": "Pintura exterior - Xalet a la muntanya",
+      "en": "Exterior Painting - Mountain Chalet"
+    },
+    "before": ["/images/proyecto6-antes1.jpg", "/images/proyecto6-antes2.jpg"],
+    "inProgress": ["/images/proyecto6-proceso1.jpg"],
+    "after": [
+      "/images/proyecto6-despues1.jpg",
+      "/images/proyecto6-despues2.jpg"
+    ]
+  }
+]

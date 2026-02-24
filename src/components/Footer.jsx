@@ -37,7 +37,7 @@ const Footer = () => {
           {/* Columna: Sobre nosotros */}
           <div className="col-span-2 lg:col-span-2">
             <a href="#home" className="text-4xl font-display font-bold text-white block mb-4">
-              PinturasPro
+              Cantero Sanchez Consultores S.L.
             </a>
             <p className="max-w-xs">
               {t.footer.about}

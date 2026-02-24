@@ -3,74 +3,76 @@ export const translations = {
   es: {
     theme: {
       light: "Modo claro",
-      dark: "Modo oscuro"
+      dark: "Modo oscuro",
     },
     nav: {
       home: "Inicio",
       services: "Servicios",
       gallery: "Galería",
       blog: "Blog",
-      contact: "Contacto"
+      contact: "Contacto",
     },
     hero: {
       tagline: "PINTAMOS TU MUNDO CON CALIDAD",
       title: "Transforma tu Espacio con Pintura Profesional",
-      subtitle: "Especialistas en pintura de hogares, edificios y fachadas. Calidad, limpieza y puntualidad garantizadas.",
+      subtitle:
+        "Especialistas en pintura de hogares, edificios y fachadas. Calidad, limpieza y puntualidad garantizadas.",
       btn1: "Ver Servicios",
-      btn2: "Cotizar Ahora"
+      btn2: "Cotizar Ahora",
     },
     search: {
       location: "Ubicación",
       date: "Fecha",
       type: "Tipo de servicio",
       placeholder: "ej: Interior, Fachada, Comercial",
-      button: "Buscar Servicio"
+      button: "Buscar Servicio",
     },
     services: {
       title: "Nuestros Servicios",
       desc: "Desde viviendas hasta edificios comerciales, ofrecemos soluciones completas.",
       included: "Incluye limpieza",
-  
     },
 
-      blog: {
+    blog: {
       title: "Consejos & Tendencias",
-      subtitle: "Ideas, guías y novedades para mantener tu hogar impecable."
+      subtitle: "Ideas, guías y novedades para mantener tu hogar impecable.",
     },
     whyUs: {
       title: "La Diferencia Pinturas Pro",
       subtitle: "Por qué miles de clientes confían en nosotros.",
       feature1: "Acabados Impecables",
       feature2: "Profesionales Certificados",
-      feature3: "Limpieza Total Incluida"
+      feature3: "Limpieza Total Incluida",
     },
     testimonials: {
       title: "Opiniones de Nuestros Clientes",
-      subtitle: "Estas son las historias que nos motivan cada día."
+      subtitle: "Estas son las historias que nos motivan cada día.",
     },
     gallery: {
       title: "Nuestro Trabajo",
       subtitle: "Antes y después de nuestros proyectos más destacados.",
-      before: 'Antes',
-      after: 'Después',
-      viewBefore: 'Ver Antes',
-      viewAfter: 'Ver Después'
+      before: "Antes",
+      after: "Después",
+      inProgress: "En Proceso",
+      viewBefore: "Ver Antes",
+      viewAfter: "Ver Después",
     },
     newsletter: {
       title: "Recibe Consejos de Mantenimiento",
-      subtitle: "Suscríbete para recibir consejos mensuales sobre cuidado de pintura y promociones exclusivas.",
+      subtitle:
+        "Suscríbete para recibir consejos mensuales sobre cuidado de pintura y promociones exclusivas.",
       placeholder: "Tu correo electrónico",
-      button: "Suscribirse"
+      button: "Suscribirse",
     },
     faq: {
       title: "Preguntas Frecuentes",
-       subtitle: "Aclarando tus dudas para comenzar con tranquilidad.",
+      subtitle: "Aclarando tus dudas para comenzar con tranquilidad.",
       q1: "¿Ofrecen presupuesto sin compromiso?",
       a1: "Sí, visitamos tu propiedad sin costo y te enviamos un presupuesto detallado en 24 horas.",
       q2: "¿Qué marcas de pintura usan?",
       a2: "Trabajamos con Sikkens, Dulux, y Colortrend, entre otras de alta durabilidad.",
       q3: "¿Cuánto tiempo tarda un trabajo?",
-      a3: "Depende del tamaño, pero una vivienda media se completa en 3-5 días con mínima molestia."
+      a3: "Depende del tamaño, pero una vivienda media se completa en 3-5 días con mínima molestia.",
     },
 
     partners: {
@@ -83,13 +85,14 @@ export const translations = {
       name: "Nombre completo",
       email: "Correo electrónico",
       message: "Describe tu proyecto...",
-      submit: "Solicitar Presupuesto"
+      submit: "Solicitar Presupuesto",
     },
     footer: {
-      about: "Creamos espacios hermosos y duraderos con pintura de alta calidad y atención al detalle.",
+      about:
+        "Creamos espacios hermosos y duraderos con pintura de alta calidad y atención al detalle.",
       explore: "Explorar",
       company: "Empresa",
-      legal: 'Legal',
+      legal: "Legal",
       links: {
         services: "Servicios",
         gallery: "Galería",
@@ -101,21 +104,20 @@ export const translations = {
         privacyPolicy: "Política de privacidad",
         cookiesPolicy: "Política de cookies",
         termsConditions: "Términos y Condiciones",
-
       },
       connect: "Conéctate",
       copyright: "© 2025 Pinturas Pro. Todos los derechos reservados.",
 
-      webDesign: 'Diseño Web',
-      developerName: 'Guillermo Martínez',
-      phone: '+34 911 123 567',
-      email: 'guille.mtz@example.com',
-      whatsapp: 'Escríbeme por WhatsApp',
-      bio: 'Deseo ayudarte a destacar en el mundo digital y lograr que tu negocio se conecte de manera auténtica con tus clientes. Sé que, como emprendedor o pequeña empresa, cada decisión cuenta. Por eso, creo que una presencia web efectiva no solo debe abrir puertas, sino construir relaciones reales y duraderas con quienes confían en tu marca.',
+      webDesign: "Diseño Web",
+      developerName: "Guillermo Martínez",
+      phone: "+34 911 123 567",
+      email: "guille.mtz@example.com",
+      whatsapp: "Escríbeme por WhatsApp",
+      bio: "Deseo ayudarte a destacar en el mundo digital y lograr que tu negocio se conecte de manera auténtica con tus clientes. Sé que, como emprendedor o pequeña empresa, cada decisión cuenta. Por eso, creo que una presencia web efectiva no solo debe abrir puertas, sino construir relaciones reales y duraderas con quienes confían en tu marca.",
       modal: {
-              legalNotice: {
-              title: "Aviso Legal",
-              body: `
+        legalNotice: {
+          title: "Aviso Legal",
+          body: `
               <strong>Titularidad del sitio web:</strong>
               - Denominación social: Pinturas Pro
               - NIF/CIF: [indicar]
@@ -132,14 +134,14 @@ export const translations = {
               <strong>Exclusión de responsabilidad</strong>
               Pinturas Pro no se responsabiliza de los daños o perjuicios que puedan derivarse del uso de la información contenida en este sitio web, ni de los enlaces a sitios de terceros.
               `,
-            },
-          
-            privacyPolicy: {
-              title: "Política de Privacidad",
-              body: `<strong>Responsable del tratamiento</strong>
+        },
+
+        privacyPolicy: {
+          title: "Política de Privacidad",
+          body: `<strong>Responsable del tratamiento</strong>
     
                     <strong>Responsable:</strong> Pinturas Pro
-                    <strong>Contacto:</strong> <a href="mailto:contacto@pinturaspro.com" class="text-secondary-light hover:underline">contacto@pinturaspro.com</a>
+                    <strong>Contacto:</strong> <a href="mailto:contacto@ccspavimentoindustrial.es" class="text-secondary-light hover:underline">contacto@ccspavimentoindustrial.es</a>
 
                     <strong>Finalidad del tratamiento</strong>
                     Los datos personales recogidos a través de formularios o medios de contacto se utilizarán para:
@@ -158,12 +160,12 @@ export const translations = {
                     No se cederán datos a terceros salvo obligación legal o necesidad para la prestación del servicio (por ejemplo, proveedores tecnológicos o gestoría).
 
                     <strong>Derechos del usuario</strong>
-                    El usuario podrá ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, enviando un escrito a <a href="mailto:contacto@pinturaspro.com" class="text-blue-800 hover:underline">contacto@pinturaspro.com</a>. También tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" class="text-blue-800 hover:underline">www.aepd.es</a>).
+                    El usuario podrá ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad, enviando un escrito a <a href="mailto:contacto@ccspavimentoindustrial.es" class="text-blue-800 hover:underline">contacto@ccspavimentoindustrial.es</a>. También tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" class="text-blue-800 hover:underline">www.aepd.es</a>).
                   `,
-            },
-            cookiesPolicy: {
-              title: "Política de Cookies",
-              body: `Este sitio web utiliza cookies para garantizar el correcto funcionamiento y mejorar la experiencia del usuario.
+        },
+        cookiesPolicy: {
+          title: "Política de Cookies",
+          body: `Este sitio web utiliza cookies para garantizar el correcto funcionamiento y mejorar la experiencia del usuario.
 
                     <strong>Tipos de cookies utilizadas</strong>
                     <strong>Cookies técnicas:</strong> necesarias para el funcionamiento del sitio.
@@ -172,10 +174,10 @@ export const translations = {
 
                     <strong>Gestión de cookies</strong>
                     El usuario puede configurar, aceptar o rechazar las cookies mediante el banner de configuración o a través de las opciones de su naavegador.`,
-            },
-            termsConditions: {
-              title: "Términos y Condiciones",
-              body: `<strong>Objeto</strong>
+        },
+        termsConditions: {
+          title: "Términos y Condiciones",
+          body: `<strong>Objeto</strong>
                     Las presentes condiciones regulan la contratación de servicios de pintura para viviendas, comunidades y edificios ofrecidos por Pinturas Pro.
 
                     <strong>Presupuestos y contratación</strong>
@@ -195,68 +197,70 @@ export const translations = {
 
                     <strong>Resolución de conflictos</strong>
                     En caso de discrepancias, las partes se someterán a los Juzgados y Tribunales de Barcelona, salvo que la normativa de consumidores disponga otra cosa.`,
-
-            }
-          }
-    }
+        },
+      },
+    },
   },
   ca: {
     theme: {
       light: "Mode clar",
-      dark: "Mode fosc"
+      dark: "Mode fosc",
     },
     nav: {
       home: "Inici",
       services: "Serveis",
       gallery: "Galeria",
       blog: "Bloc",
-      contact: "Contacte"
+      contact: "Contacte",
     },
     hero: {
       tagline: "PINTA EL TEU MÓN AMB QUALITAT",
       title: "Transforma el Teu Espai amb Pintura Professional",
-      subtitle: "Experts en pintura d’habitatges, edificis i façanes. Qualitat, netedat i puntualitat garantides.",
+      subtitle:
+        "Experts en pintura d’habitatges, edificis i façanes. Qualitat, netedat i puntualitat garantides.",
       btn1: "Veure Serveis",
-      btn2: "Sol·licitar Pressupost"
+      btn2: "Sol·licitar Pressupost",
     },
     search: {
       location: "Ubicació",
       date: "Data",
       type: "Tipus de servei",
       placeholder: "ex: Interior, Facana, Comercial",
-      button: "Cercar Servei"
+      button: "Cercar Servei",
     },
     services: {
       title: "Els Nostres Serveis",
       desc: "Des d’habitatges fins a edificis comercials, oferim solucions completes.",
       included: "Inclou neteja",
     },
-   blog: {
+    blog: {
       title: "Consells & Tendències",
-      subtitle: "Idees, guies i novetats per mantenir la teva casa impecable."
+      subtitle: "Idees, guies i novetats per mantenir la teva casa impecable.",
     },
-    
+
     whyUs: {
       title: "La Diferència Pintures Pro",
-      subtitle: "Per què milers de clients confien en nosaltres."
+      subtitle: "Per què milers de clients confien en nosaltres.",
     },
     testimonials: {
       title: "Opinions dels Nostres Clients",
-      subtitle: "Aquestes són les històries que ens motiven cada dia."
+      subtitle: "Aquestes són les històries que ens motiven cada dia.",
     },
     gallery: {
       title: "El Nostre Treball",
       subtitle: "Abans i després dels nostres projectes més destacats.",
-      before: 'Abans',
-      after: 'Després',
-      viewBefore: 'Veure Abans',
-      viewAfter: 'Veure Després'
+      before: "Abans",
+      after: "Després",
+      inProgress: "En procés",
+      viewBefore: "Veure Abans",
+      viewAfter: "Veure Després",
     },
     newsletter: {
       title: "Reb Consells de Manteniment",
-      subtitle: "Subscriu-te per rebre consells mensuals sobre cura de la pintura i promocions exclusives.",
+      subtitle:
+        "Subscriu-te per rebre consells mensuals sobre cura de la pintura i promocions exclusives.",
       placeholder: "El teu correu electrònic",
-      button: "Subscriure’s"
+      button: "Subscriure’s",
     },
     faq: {
       title: "Preguntes Freqüents",
@@ -266,13 +270,12 @@ export const translations = {
       q2: "¿Quines marques de pintura utilitzeu?",
       a2: "Treballem amb Sikkens, Dulux i Colortrend, entre altres de gran durabilitat.",
       q3: "¿Quant de temps triga una feina?",
-      a3: "Depèn de la mida, però una llar mitjana s’acaba en 3-5 dies amb mínima molèstia."
+      a3: "Depèn de la mida, però una llar mitjana s’acaba en 3-5 dies amb mínima molèstia.",
     },
 
-   partners: {
+    partners: {
       title: "Treballem amb les Millors Marques",
     },
-
 
     contact: {
       title: "Comença el Teu Projecte",
@@ -280,13 +283,14 @@ export const translations = {
       name: "Nom complet",
       email: "Correu electrònic",
       message: "Descriu el teu projecte...",
-      submit: "Sol·licitar pressupost"
+      submit: "Sol·licitar pressupost",
     },
     footer: {
-      about: "Creem espais bonics i duradors amb pintura d’alta qualitat i atenció als detalls.",
+      about:
+        "Creem espais bonics i duradors amb pintura d’alta qualitat i atenció als detalls.",
       explore: "Explora",
       company: "Empresa",
-      legal: 'Legal',
+      legal: "Legal",
       links: {
         services: "Serveis",
         gallery: "Galeria",
@@ -294,20 +298,20 @@ export const translations = {
         about: "Sobre Nosaltres",
         press: "Premsa",
         careers: "Treballa amb Nosaltres",
-        legalNotice: 'Avís legal',
-        privacyPolicy: 'Política de privadesa',
-        cookiesPolicy: 'Política de cookies',
-        termsConditions: 'Termes i Condicions',
+        legalNotice: "Avís legal",
+        privacyPolicy: "Política de privadesa",
+        cookiesPolicy: "Política de cookies",
+        termsConditions: "Termes i Condicions",
       },
       connect: "Connecta’t",
       copyright: "© 2025 Pintures Pro. Tots els drets reservats.",
 
-      webDesign: 'Disseny Web',
-      developerName: 'Guillermo Martínez',
-      phone: '+34 911 123 567',
-      email: 'guille.mtz@example.com',
-      whatsapp: 'Escriu-me per WhatsApp',
-      bio: 'Vull ajudar-te a destacar al món digital i fer que el teu negoci es connecti de manera autèntica amb els teus clients. Sé que, com a emprenedor o pyme, cada decisió compta. Per això, crec que una presència web efectiva no només ha d’obrir portes, sinó construir relacions reals i duradores amb qui confia en la teva marca.',
+      webDesign: "Disseny Web",
+      developerName: "Guillermo Martínez",
+      phone: "+34 911 123 567",
+      email: "guille.mtz@example.com",
+      whatsapp: "Escriu-me per WhatsApp",
+      bio: "Vull ajudar-te a destacar al món digital i fer que el teu negoci es connecti de manera autèntica amb els teus clients. Sé que, com a emprenedor o pyme, cada decisió compta. Per això, crec que una presència web efectiva no només ha d’obrir portes, sinó construir relacions reals i duradores amb qui confia en la teva marca.",
 
       modal: {
         legalNotice: {
@@ -327,35 +331,34 @@ export const translations = {
 
             <strong>Exclusió de responsabilitat</strong>
             Pintures Pro no es fa responsable dels danys o perjudicis que puguin derivar de l'ús de la informació continguda en aquest lloc web, ni dels enllaços a llocs de tercers.
-          `
+          `,
         },
         privacyPolicy: {
           title: "Política de Privadesa",
           body: `
-            <strong>Responsable del tractament</strong><br><br>
-            
-            <strong>Responsable:</strong> Pintures Pro<br>
-            <strong>Contacte:</strong> <a href="mailto:contacte@pinturespro.com" class="text-secondary-light hover:underline">contacte@pinturespro.com</a><br><br>
+            <strong>Responsable del tractament</strong><br>
+            <strong>Responsable:</strong> Pintures Pro
+            <strong>Contacte:</strong> <a href="mailto:contacte@pinturespro.com" class="text-secondary-light hover:underline">contacte@pinturespro.com</a>
 
-            <strong>Finalitat del tractament</strong><br><br>
-            Les dades personals recollides mitjançant formularis o canals de contacte s'utilitzaran per:<br>
-            • Respondre a sol·licituds d'informació i elaboració de pressupostos.<br>
-            • Gestionar la relació comercial i la prestació dels serveis contractats.<br>
-            • Enviar comunicacions sobre serveis de pintura i manteniment (només amb consentiment).<br><br>
+            <strong>Finalitat del tractament</strong>
+            Les dades personals recollides mitjançant formularis o canals de contacte s'utilitzaran per:
+            • Respondre a sol·licituds d'informació i elaboració de pressupostos.
+            • Gestionar la relació comercial i la prestació dels serveis contractats.
+            • Enviar comunicacions sobre serveis de pintura i manteniment (només amb consentiment).
 
-            <strong>Legitimació</strong><br><br>
-            • Consentiment de l'interessat.<br>
-            • Execució d'un contracte o aplicació de mesures precontractuals.<br><br>
+            <strong>Legitimació</strong>
+            • Consentiment de l'interessat.
+            • Execució d'un contracte o aplicació de mesures precontractuals.<br>
 
-            <strong>Termini de conservació</strong><br><br>
-            Les dades es conservaran mentre duri la relació comercial i, posteriorment, el temps necessari per complir obligacions legals.<br><br>
+            <strong>Termini de conservació</strong>
+            Les dades es conservaran mentre duri la relació comercial i, posteriorment, el temps necessari per complir obligacions legals.<br>
 
-            <strong>Cessions de dades</strong><br><br>
-            No es cediran dades a tercers llevat d'obligació legal o necessitat per a la prestació del servei (per exemple, proveïdors tecnològics o gestoria).<br><br>
+            <strong>Cessions de dades</strong>
+            No es cediran dades a tercers llevat d'obligació legal o necessitat per a la prestació del servei (per exemple, proveïdors tecnològics o gestoria).<br>
 
-            <strong>Drets de l'usuari</strong><br><br>
+            <strong>Drets de l'usuari</strong>
             L'usuari podrà exercir els drets d'accés, rectificació, supressió, oposició, limitació i portabilitat, enviant un escrit a <a href="mailto:contacte@pinturespro.com" class="text-blue-800 hover:underline">contacte@pinturespro.com</a>. També té dret a presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (<a href="https://www.aepd.es" target="_blank" class="text-blue-800 hover:underline">www.aepd.es</a>).
-          `
+          `,
         },
         cookiesPolicy: {
           title: "Política de Galetes",
@@ -369,7 +372,7 @@ export const translations = {
 
             <strong>Gestió de galetes</strong><br><br>
             L'usuari pot configurar, acceptar o rebutjar les galetes mitjançant el banner de configuració o a través de les opcions del seu naavegador.
-          `
+          `,
         },
         termsConditions: {
           title: "Termes i Condicions",
@@ -394,36 +397,37 @@ export const translations = {
 
             <strong>Resolució de conflictes</strong><br><br>
             En cas de discrepàncies, les parts es sotmetran als jutjats i tribunals de Barcelona, llevat que la normativa de consumidors disposi una altra cosa.
-          `
+          `,
         },
       },
-   },
+    },
   },
   en: {
     theme: {
       light: "Light mode",
-      dark: "Dark mode"
-    },    
+      dark: "Dark mode",
+    },
     nav: {
       home: "Home",
       services: "Services",
       gallery: "Gallery",
       blog: "Blog",
-      contact: "Contact"
+      contact: "Contact",
     },
     hero: {
       tagline: "PAINTING YOUR WORLD WITH QUALITY",
       title: "Transform Your Space with Professional Painting",
-      subtitle: "Experts in homes, buildings, and facades. Quality, cleanliness, and punctuality guaranteed.",
+      subtitle:
+        "Experts in homes, buildings, and facades. Quality, cleanliness, and punctuality guaranteed.",
       btn1: "View Services",
-      btn2: "Get Quote"
+      btn2: "Get Quote",
     },
     search: {
       location: "Location",
       date: "Date",
       type: "Service Type",
       placeholder: "e.g., Interior, Exterior, Commercial",
-      button: "Find Service"
+      button: "Find Service",
     },
     services: {
       title: "Our Services",
@@ -432,37 +436,37 @@ export const translations = {
     },
     blog: {
       title: "Tips & Trends",
-      subtitle: "Ideas, guides, and updates to keep your home spotless."
+      subtitle: "Ideas, guides, and updates to keep your home spotless.",
     },
 
     whyUs: {
       title: "The Pinturas Pro Difference",
-      subtitle: "Why thousands of customers trust us."
+      subtitle: "Why thousands of customers trust us.",
     },
     testimonials: {
       title: "What Our Customers Say",
-      subtitle: "These are the stories that motivate us every day."
+      subtitle: "These are the stories that motivate us every day.",
     },
     gallery: {
       title: "Our Work",
       subtitle: "Before and after our most notable projects.",
-      before: 'Before',
-      after: 'After',
-      viewBefore: 'View Before',
-      viewAfter: 'View After'
+      before: "Before",
+      after: "After",
+      inProgress: "In Progress",
+      viewBefore: "View Before",
+      viewAfter: "View After",
     },
     newsletter: {
       title: "Get Maintenance Tips",
-      subtitle: "Subscribe for monthly painting care tips and exclusive offers.",
+      subtitle:
+        "Subscribe for monthly painting care tips and exclusive offers.",
       placeholder: "Your email address",
-      button: "Subscribe"
+      button: "Subscribe",
     },
 
     partners: {
       title: "We work with the best brands",
     },
-
-
 
     faq: {
       title: "Frequently Asked Questions",
@@ -472,7 +476,7 @@ export const translations = {
       q2: "What paint brands do you use?",
       a2: "We work with Sikkens, Dulux, and Colortrend, among others known for durability.",
       q3: "How long does a job take?",
-      a3: "It depends on size, but an average home is completed in 3-5 days with minimal disruption."
+      a3: "It depends on size, but an average home is completed in 3-5 days with minimal disruption.",
     },
     contact: {
       title: "Start Your Project",
@@ -480,13 +484,14 @@ export const translations = {
       name: "Full Name",
       email: "Email Address",
       message: "Describe your project...",
-      submit: "Request Estimate"
+      submit: "Request Estimate",
     },
     footer: {
-      about: "We create beautiful, lasting spaces with high-quality paint and attention to detail.",
+      about:
+        "We create beautiful, lasting spaces with high-quality paint and attention to detail.",
       explore: "Explore",
       company: "Company",
-      legal: 'Legal',
+      legal: "Legal",
       links: {
         services: "Services",
         gallery: "Gallery",
@@ -494,24 +499,24 @@ export const translations = {
         about: "About Us",
         press: "Press",
         careers: "Careers",
-        legalNotice: 'Legal Notice',
-        privacyPolicy: 'Privacy Policy',
-        cookiesPolicy: 'Cookie Policy',
-        termsConditions: 'Terms and Conditions'
-       },
+        legalNotice: "Legal Notice",
+        privacyPolicy: "Privacy Policy",
+        cookiesPolicy: "Cookie Policy",
+        termsConditions: "Terms and Conditions",
+      },
       connect: "Connect",
       copyright: "© 2025 Pinturas Pro. All Rights Reserved.",
 
-      webDesign: 'Web Design',
-      developerName: 'Guillermo Martínez',
-      phone: '+34 911 123 567',
-      email: 'guille.mtz@example.com',
-      whatsapp: 'Message me on WhatsApp',
-      bio: 'I want to help you stand out in the digital world and make your business connect authentically with your customers. I know that as an entrepreneur or small business, every decision matters. That’s why I believe an effective web presence should not only open doors but build real, lasting relationships with those who trust your brand.',
+      webDesign: "Web Design",
+      developerName: "Guillermo Martínez",
+      phone: "+34 911 123 567",
+      email: "guille.mtz@example.com",
+      whatsapp: "Message me on WhatsApp",
+      bio: "I want to help you stand out in the digital world and make your business connect authentically with your customers. I know that as an entrepreneur or small business, every decision matters. That’s why I believe an effective web presence should not only open doors but build real, lasting relationships with those who trust your brand.",
       modal: {
         legalNotice: {
-        title: 'Legal Notice',
-        body: `
+          title: "Legal Notice",
+          body: `
             <strong>Website Ownership:</strong>
             - Company Name: Pinturas Pro
             - Tax ID/VAT: [to be specified]
@@ -527,39 +532,39 @@ export const translations = {
 
             <strong>Limitation of Liability</strong>
             Pinturas Pro shall not be liable for any damages or losses arising from the use of the information contained on this website, nor for links to third-party websites.
-          `
-      },
-      privacyPolicy: {
-        title: 'Privacy Policy',
-        body: `
-            <strong>Data Controller</strong><br><br>
-            
-            <strong>Controller:</strong> Pinturas Pro<br>
-            <strong>Contact:</strong> <a href="mailto:info@pinturaspro.com" class="text-secondary-light hover:underline">info@pinturaspro.com</a><br><br>
-
-            <strong>Purpose of Processing</strong><br><br>
-            Personal data collected through forms or contact methods will be used to:<br>
-            • Respond to information requests and quote preparation.<br>
-            • Manage the business relationship and delivery of contracted services.<br>
-            • Send communications about painting and maintenance services (only with consent).<br><br>
-
-            <strong>Legal Basis</strong><br><br>
-            • User’s consent.<br>
-            • Performance of a contract or pre-contractual measures.<br><br>
-
-            <strong>Data Retention Period</strong><br><br>
-            Data will be kept for as long as the business relationship lasts, and subsequently for the time required to comply with legal obligations.<br><br>
-
-            <strong>Data Sharing</strong><br><br>
-            Data will not be shared with third parties except where required by law or necessary for service delivery (e.g., technology providers or accounting firms).<br><br>
-
-            <strong>User Rights</strong><br><br>
-            You have the right to access, rectify, erase, object to, restrict processing, and data portability. To exercise these rights, please email <a href="mailto:info@pinturaspro.com" class="text-blue-800 hover:underline">info@pinturaspro.com</a>. You also have the right to lodge a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es" target="_blank" class="text-blue-800 hover:underline">www.aepd.es</a>).
           `,
         },
-    cookiesPolicy: {
-      title: 'Cookie Policy',
-      body: `
+        privacyPolicy: {
+          title: "Privacy Policy",
+          body: `
+            <strong>Data Controller</strong><br>
+            
+            <strong>Controller:</strong> Pinturas Pro
+            <strong>Contact:</strong> <a href="mailto:info@ccspavimentoindustrial.es" class="text-secondary-light hover:underline">info@ccspavimentoindustrial.es</a><br>
+
+            <strong>Purpose of Processing</strong>
+            Personal data collected through forms or contact methods will be used to:
+            • Respond to information requests and quote preparation.
+            • Manage the business relationship and delivery of contracted services.
+            • Send communications about painting and maintenance services (only with consent).<br>
+
+            <strong>Legal Basis</strong>
+            • User’s consent.
+            • Performance of a contract or pre-contractual measures.<br>
+
+            <strong>Data Retention Period</strong>
+            Data will be kept for as long as the business relationship lasts, and subsequently for the time required to comply with legal obligations.<br>
+
+            <strong>Data Sharing</strong>
+            Data will not be shared with third parties except where required by law or necessary for service delivery (e.g., technology providers or accounting firms).<br>
+
+            <strong>User Rights</strong>
+            You have the right to access, rectify, erase, object to, restrict processing, and data portability. To exercise these rights, please email <a href="mailto:info@ccspavimentoindustrial.es" class="text-blue-800 hover:underline">info@ccspavimentoindustrial.es</a>. You also have the right to lodge a complaint with the Spanish Data Protection Agency (<a href="https://www.aepd.es" target="_blank" class="text-blue-800 hover:underline">www.aepd.es</a>).
+          `,
+        },
+        cookiesPolicy: {
+          title: "Cookie Policy",
+          body: `
             This website uses cookies to ensure proper functionality and improve user experience.
 
             <strong>Types of Cookies Used</strong><br><br>
@@ -570,10 +575,10 @@ export const translations = {
             <strong>Cookie Management</strong><br><br>
             Users can configure, accept, or reject cookies via the cookie banner or through their browser settings.
       `,
-    },
-    termsConditions: {
-      title: 'Terms and Conditions',
-      body: `
+        },
+        termsConditions: {
+          title: "Terms and Conditions",
+          body: `
             <strong>Scope</strong><br><br>
             These terms govern the contracting of painting services for homes, communities, and buildings offered by Pinturas Pro.<br><br>
 
@@ -594,10 +599,9 @@ export const translations = {
 
             <strong>Dispute Resolution</strong><br><br>
             In case of disputes, both parties agree to submit to the courts of Barcelona, unless consumer protection laws provide otherwise.
-      `
-    }
-      }
-    }
-  }
-}
-
+      `,
+        },
+      },
+    },
+  },
+};

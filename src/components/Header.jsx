@@ -1,12 +1,11 @@
 // src/components/Header.jsx
-import { useState, useEffect, useContext } from 'react';
-import { LangContext } from '../context/LangContext';
-import { ThemeContext } from '../context/ThemeContext';
-import LanguageSwitcher from './LanguageSwitcher';
-import ThemeToggle from './ThemeToggle';
+import { useState, useEffect, useContext, useRef } from "react";
+import { LangContext } from "../context/LangContext";
+import { ThemeContext } from "../context/ThemeContext";
+import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 
-import React from 'react'; // ✅ Añade esta línea
-
+import React from "react"; // ✅ Añade esta línea
 
 const Header = () => {
   const { t, lang } = useContext(LangContext);
@@ -15,6 +14,8 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef();
+  const buttonRef = useRef();
 
   // Detectar scroll: si > 50px, activa isScrolled (para efectos visuales)
   useEffect(() => {
@@ -22,13 +23,31 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
       setShowScrollTop(window.scrollY > 300); // Mostrar botón después de 300px
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Cerrar menú al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   // Función para volver al inicio suavemente
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // Cerrar menú móvil al hacer clic en un enlace
@@ -41,26 +60,47 @@ const Header = () => {
       {/* Header fijo con difuminado y sombra siempre activos */}
       <header
         id="navbar"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/20 dark:bg-gray-900/80 backdrop-blur-md shadow-md`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md`}
       >
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" className="text-4xl font-display font-bold text-teal-400 dark:text-teal-400" onClick={closeMobileMenu}>
-            PinturasPro
+          <a
+            href="#home"
+            className="flex items-center gap-3 text-3xl font-display font-bold text-teal-600 dark:text-teal-400"
+            onClick={closeMobileMenu}
+          >
+            <img
+              src="/images/logo.png"
+              alt="Logo de Cantero Sanchez Consultores S.L."
+              className="h-14 w-auto object-contain"
+            />
+            Cantero Sanchez Consultores S.L.
           </a>
 
           {/* Menú Desktop */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="#home" className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary">
+            <a
+              href="#home"
+              className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary"
+            >
               {t.nav.home}
             </a>
-            <a href="#services" className="nav-link text-lg font-medium text-secondary  hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary">
+            <a
+              href="#services"
+              className="nav-link text-lg font-medium text-secondary  hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary"
+            >
               {t.nav.services}
             </a>
-            <a href="#gallery" className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary">
+            <a
+              href="#gallery"
+              className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary"
+            >
               {t.nav.gallery}
             </a>
-            <a href="#blog" className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary">
+            <a
+              href="#blog"
+              className="nav-link text-lg font-medium text-secondary hover:text-secondary-inverted transition-colors duration-300 pb-1 border-b-2 border-transparent hover:border-secondary"
+            >
               {t.nav.blog}
             </a>
             <a
@@ -72,23 +112,44 @@ const Header = () => {
 
             {/* Switchers */}
             <div className="flex items-center space-x-4 ml-6">
-            {/*    <ThemeToggle />  */}
+              {/*    <ThemeToggle />  */}
               <LanguageSwitcher />
             </div>
           </div>
 
           {/* Botón Menú Móvil */}
           <div className="flex items-center space-x-4 lg:hidden">
-      {/*       <ThemeToggle small /> */}
-            <LanguageSwitcher small />
+            {/*       <ThemeToggle small /> */}
+            <LanguageSwitcher />
             <button
               id="mobile-menu-button"
+              ref={buttonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-gray-400 dark:text-gray-200 focus:outline-none"
               aria-label="Toggle menu"
             >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                )}
               </svg>
             </button>
           </div>
@@ -98,6 +159,7 @@ const Header = () => {
         {!mobileMenuOpen ? null : (
           <div
             id="mobile-menu"
+            ref={menuRef}
             className="lg:hidden bg-white/90 dark:bg-gray-800/90 shadow-lg rounded-b-xl overflow-hidden backdrop-blur-md transition-all duration-300"
           >
             <ul className="flex flex-col items-center py-4 space-y-4">

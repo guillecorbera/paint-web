@@ -1,75 +1,51 @@
 // src/components/Gallery.jsx
-import { useState, useContext } from 'react';
-import { LangContext } from '../context/LangContext';
+import { useState, useContext, useEffect } from "react";
+import { LangContext } from "../context/LangContext";
 
-import React from 'react'; // ✅ Añade esta línea
+import React from "react"; // ✅ Añade esta línea
 
 const Gallery = () => {
   const { t, lang } = useContext(LangContext);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
 
-  // Proyectos con imágenes "antes" y "después"
-  const projects = [
-    {
-      before: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2070&auto=format&fit=crop',
-      title: {
-        es: 'Pintura interior - Piso en Barcelona',
-        ca: 'Pintura interior - Pis a Barcelona',
-        en: 'Interior Painting - Apartment in Barcelona'
-      }
-    },
-    {
-      before: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop',
-      title: {
-        es: 'Fachada comercial - Oficina en Madrid',
-        ca: 'Façana comercial - Oficina a Madrid',
-        en: 'Commercial Facade - Office in Madrid'
-      }
-    },
-    {
-      before: 'https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?q=80&w=2071&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop',
-      title: {
-        es: 'Renovación completa - Casa familiar',
-        ca: 'Renovació completa - Casa familiar',
-        en: 'Full Renovation - Family Home'
-      }
-    },
-    {
-      before: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop',
-      title: {
-        es: 'Pintura decorativa - Salón moderno',
-        ca: 'Pintura decorativa - Saló modern',
-        en: 'Decorative Painting - Modern Living Room'
-      }
-    },
-    {
-      before: 'https://images.unsplash.com/photo-1539635556837-99ac94a94552?q=80&w=2070&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1974&auto=format&fit=crop',
-      title: {
-        es: 'Edificio residencial - Bloque de pisos',
-        ca: 'Edifici residencial - Bloc de pisos',
-        en: 'Residential Building - Apartment Block'
-      }
-    },
-    {
-      before: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop',
-      after: 'https://images.unsplash.com/photo-1526392060635-9d6019884377?q=80&w=2070&auto=format&fit=crop',
-      title: {
-        es: 'Pintura exterior - Chalet en montaña',
-        ca: 'Pintura exterior - Xalet a la muntanya',
-        en: 'Exterior Painting - Mountain Chalet'
-      }
+  // Estado para proyectos mezclados aleatoriamente
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Función para mezclar array (algoritmo Fisher-Yates)
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-  ];
+    return shuffled;
+  };
 
-  const openLightbox = (index, isAfter = true) => {
+  // Cargar proyectos desde JSON
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch("/data/gallery.json");
+        if (!response.ok) throw new Error("Error al cargar la galería");
+        const data = await response.json();
+        setProjects(shuffleArray(data));
+      } catch (error) {
+        console.error("Error cargando galería:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadProjects();
+  }, []);
+
+  const openLightbox = (index, phase = "after") => {
     setCurrentImageIndex(index);
-    setSelectedView(isAfter ? 'after' : 'before');
+    setSelectedView(phase);
+    setCurrentPhaseIndex(0);
     setLightboxOpen(true);
   };
 
@@ -78,21 +54,60 @@ const Gallery = () => {
   };
 
   const goToPrevious = () => {
-    setCurrentImageIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? projects.length - 1 : prev - 1,
+    );
   };
 
   const goToNext = () => {
-    setCurrentImageIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    setCurrentImageIndex((prev) =>
+      prev === projects.length - 1 ? 0 : prev + 1,
+    );
   };
 
-  const [selectedView, setSelectedView] = useState('after'); // 'before' o 'after'
+  const [selectedView, setSelectedView] = useState("after"); // 'before', 'inProgress' o 'after'
+
+  // Obtener imágenes actuales según la fase seleccionada
+  const getCurrentImages = () => {
+    if (!projects[currentImageIndex]) return [];
+    return projects[currentImageIndex][selectedView] || [];
+  };
+
+  // Navegar entre imágenes de la misma fase
+  const goToPreviousPhaseImage = () => {
+    const images = getCurrentImages();
+    setCurrentPhaseIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const goToNextPhaseImage = () => {
+    const images = getCurrentImages();
+    setCurrentPhaseIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  if (loading) {
+    return (
+      <section
+        id="gallery"
+        className="py-24 bg-gradient-to-b from-yellow-50 to-green-50"
+      >
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-xl text-gray-600">Cargando galería...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="gallery" className="py-24 bg-gradient-to-b from-yellow-50 to-green-50">
+    <section
+      id="gallery"
+      className="py-24 bg-gradient-to-b from-yellow-50 to-green-50"
+    >
       <div className="container mx-auto px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">{t.gallery.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">
+            {t.gallery.title}
+          </h2>
           <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             {t.gallery.subtitle}
           </p>
@@ -105,21 +120,21 @@ const Gallery = () => {
               key={index}
               className="group relative overflow-hidden rounded-lg mb-4"
               data-aos="zoom-in-up"
-              >
+            >
               <img
-                src={project.after}
-                alt={`Después - ${project.title[t.lang]}`}
+                src={project.after && project.after[0]}
+                alt={`Después - ${project.title[t.lang] || project.title.es}`}
                 className="w-full h-auto object-cover cursor-pointer transition-transform duration-500 group-hover:scale-105"
-                onClick={() => openLightbox(index, true)}
+                onClick={() => openLightbox(index, "after")}
               />
               <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded">
                 {t.gallery?.after}
               </div>
               <button
-                onClick={() => openLightbox(index, false)}
+                onClick={() => openLightbox(index, "before")}
                 className="absolute bottom-3 right-3 bg-secondary hover:bg-yellow-500 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transition"
               >
-                {t.gallery?.before}
+                {t.gallery?.before || "Antes"}
               </button>
             </div>
           ))}
@@ -142,66 +157,100 @@ const Gallery = () => {
             ×
           </button>
 
-          {/* Navegación Anterior */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goToPrevious();
-            }}
-            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* Navegación Siguiente */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goToNext();
-            }}
-            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
           {/* Imagen Actual */}
           <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
-            <img
-              id="lightbox-img"
-              src={
-                selectedView === 'after'
-                  ? projects[currentImageIndex].after
-                  : projects[currentImageIndex].before
-              }
-              alt={
-                selectedView === 'after'
-                  ? `Después - ${projects[currentImageIndex].title[t.lang]}`
-                  : `Antes - ${projects[currentImageIndex].title[t.lang]}`
-              }
-              className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
-            />
+            {getCurrentImages().length > 0 && (
+              <img
+                id="lightbox-img"
+                src={getCurrentImages()[currentPhaseIndex]}
+                alt={`${selectedView} - ${projects[currentImageIndex].title[lang] || projects[currentImageIndex].title.es}`}
+                className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+              />
+            )}
 
-            {/* Botón Cambiar Vista (Antes/D después) */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedView(selectedView === 'after' ? 'before' : 'after');
-              }}
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-secondary text-white font-medium px-4 py-2 rounded-full shadow-lg hover:bg-yellow-500 transition"
-            >
-              {selectedView === 'after'
-                ? t.gallery.viewBefore // || 'Ver Antes'
-                : t.gallery.viewAfter //|| 'Ver Después'
-                }
-            </button>
+            {/* Navegación entre imágenes de la misma fase */}
+            {getCurrentImages().length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPreviousPhaseImage();
+                  }}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-secondary/80 text-white p-2 rounded-full hover:bg-secondary transition"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNextPhaseImage();
+                  }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-secondary/80 text-white p-2 rounded-full hover:bg-secondary transition"
+                >
+                  ›
+                </button>
+                <div className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-black/50 text-white text-xs px-3 py-1 rounded-full">
+                  {currentPhaseIndex + 1} / {getCurrentImages().length}
+                </div>
+              </>
+            )}
+
+            {/* Botones Cambiar Fase */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {projects[currentImageIndex]?.before?.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedView("before");
+                    setCurrentPhaseIndex(0);
+                  }}
+                  className={`px-4 py-2 rounded-full font-medium transition ${
+                    selectedView === "before"
+                      ? "bg-secondary text-white"
+                      : "bg-gray-700 text-white hover:bg-gray-600"
+                  }`}
+                >
+                  {t.gallery?.before || "Antes"}
+                </button>
+              )}
+              {projects[currentImageIndex]?.inProgress?.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedView("inProgress");
+                    setCurrentPhaseIndex(0);
+                  }}
+                  className={`px-4 py-2 rounded-full font-medium transition ${
+                    selectedView === "inProgress"
+                      ? "bg-secondary text-white"
+                      : "bg-gray-700 text-white hover:bg-gray-600"
+                  }`}
+                >
+                  {t.gallery?.inProgress || "En Proceso"}
+                </button>
+              )}
+              {projects[currentImageIndex]?.after?.length > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedView("after");
+                    setCurrentPhaseIndex(0);
+                  }}
+                  className={`px-4 py-2 rounded-full font-medium transition ${
+                    selectedView === "after"
+                      ? "bg-secondary text-white"
+                      : "bg-gray-700 text-white hover:bg-gray-600"
+                  }`}
+                >
+                  {t.gallery?.after || "Después"}
+                </button>
+              )}
+            </div>
 
             {/* Título del proyecto */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 text-sm bg-black/50 text-white text-center px-4 py-2 rounded-full max-w-xs truncate">
-              {projects[currentImageIndex].title[lang]}
+              {projects[currentImageIndex].title[lang] ||
+                projects[currentImageIndex].title.es}
             </div>
           </div>
         </div>

@@ -1,9 +1,12 @@
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-import React from 'react';
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+import React from "react";
 
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
-})
+  plugins: [tailwindcss()],
+  server: {
+    proxy: {
+      "/api": "http://localhost:3001",
+    },
+  },
+});

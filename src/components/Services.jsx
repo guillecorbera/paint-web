@@ -1,73 +1,86 @@
 // src/components/Services.jsx
-import { useContext } from 'react';
-import { LangContext } from '../context/LangContext';
-import React from 'react'; // ✅ Añade esta línea
-
+import { useContext, useState, useEffect } from "react";
+import { LangContext } from "../context/LangContext";
+import { fetchServices } from "../utils/api";
+import React from "react";
 
 const Services = () => {
   const { t, lang } = useContext(LangContext);
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const services = [
-    {
-      title: {
-        es: 'Pintura Interior',
-        ca: 'Pintura Interior',
-        en: 'Interior Painting'
-      },
-      description: {
-        es: 'Renueva tus paredes, techos y molduras con acabados impecables y sin polvo.',
-        ca: 'Renova les teves parets, sostres i motllures amb acabats impecables i sense pols.',
-        en: 'Refresh your walls, ceilings, and trim with dust-free, flawless finishes.'
-      },
-      price: {
-        es: 'Desde €80/día',
-        ca: 'Des de 80€/dia',
-        en: 'From €80/day'
-      },
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop'
-    },
-    {
-      title: {
-        es: 'Pintura Exterior & Fachadas',
-        ca: 'Pintura Exterior i Façanes',
-        en: 'Exterior & Facade Painting'
-      },
-      description: {
-        es: 'Protege y embellece tu propiedad con pinturas resistentes a la intemperie y UV.',
-        ca: 'Protegeix i embelleix la teva propietat amb pintures resistents a l’atmosfera i UV.',
-        en: 'Protect and beautify your property with weather and UV-resistant paints.'
-      },
-      price: {
-        es: 'Desde €120/día',
-        ca: 'Des de 120€/dia',
-        en: 'From €120/day'
-      },
-      image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2070&auto=format&fit=crop'
-    },
-    {
-      title: {
-        es: 'Edificios Comerciales',
-        ca: 'Edificis Comercials',
-        en: 'Commercial Buildings'
-      },
-      description: {
-        es: 'Soluciones profesionales para oficinas, tiendas y espacios públicos con mínima interrupción.',
-        ca: 'Solucions professionals per a oficines, botigues i espais públics amb mínima interrupció.',
-        en: 'Professional solutions for offices, stores, and public spaces with minimal disruption.'
-      },
-      price: {
-        es: 'Presupuesto personalizado',
-        ca: 'Pressupost personalitzat',
-        en: 'Custom quote'
-      },
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop'
-    }
-  ];
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchServices();
+        setServices(data);
+        setError(null);
+      } catch (err) {
+        setError(err && err.message ? err.message : "Error loading services");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadServices();
+  }, []);
+
+  if (loading) {
+    return (
+      <section
+        id="services"
+        className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
+      >
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-xl text-gray-600">Cargando servicios...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section
+        id="services"
+        className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
+      >
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-xl text-red-600">{error}</p>
+          <div className="mt-4">
+            <button
+              onClick={() => {
+                setError(null);
+                setLoading(true);
+                fetchServices()
+                  .then((data) => setServices(data))
+                  .catch((err) =>
+                    setError(
+                      err && err.message
+                        ? err.message
+                        : "Error loading services",
+                    ),
+                  )
+                  .finally(() => setLoading(false));
+              }}
+              className="mt-2 inline-block px-4 py-2 bg-primary-light text-white rounded-lg"
+            >
+              Reintentar
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-/*     <section id="services" className="py-24 bg-gray-50 dark:bg-gray-800">
- */    <section id="services" className="py-24 bg-gradient-to-b from-red-50 to-orange-50">
-
+    /*     <section id="services" className="py-24 bg-gray-50 dark:bg-gray-800">
+     */ <section
+      id="services"
+      className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
+    >
       <div className="container mx-auto px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">
@@ -111,7 +124,9 @@ const Services = () => {
 
                 {/* CTA */}
                 <div className="mt-auto flex justify-between items-center">
-                  <span className="text-sm text-secondary-light dark:text-secondary-dark font-medium">✔️ {t.services.included || 'Incluye limpieza'}</span>
+                  <span className="text-sm text-secondary-light dark:text-secondary-dark font-medium">
+                    ✔️ {t.services.included || "Incluye limpieza"}
+                  </span>
                   <a
                     href="#contact"
                     className="font-semibold text-primary-light hover:text-secondary-light dark:text-primary-dark dark:hover:text-secondary-dark transition-colors duration-300"

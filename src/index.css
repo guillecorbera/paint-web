@@ -27,8 +27,10 @@
   --color-dark-border: #334155;
 
   /* Colores corporativos */
-  --color-primary: #2563EB;        /* Claro */
-  --color-primary-inverted: #3B82F6; /* Oscuro */
+  --color-primary: #2563EB;
+  /* Claro */
+  --color-primary-inverted: #3B82F6;
+  /* Oscuro */
 
   --color-secondary: #F97316;
   --color-secondary-inverted: #FB923C;
@@ -56,12 +58,10 @@
 /* Hero background */
 .hero-bg {
   @apply bg-cover bg-center bg-no-repeat;
-  background-image: linear-gradient(
-      to top,
+  background-image: linear-gradient(to top,
       rgba(0, 0, 0, 0.6) 0%,
       rgba(0, 0, 0, 0.2) 60%,
-      rgba(0, 0, 0, 0.6) 100%
-    ),
+      rgba(0, 0, 0, 0.6) 100%),
     url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');
 }
 
@@ -70,10 +70,12 @@
   0% {
     box-shadow: 0 4px 14px -3px rgba(59, 130, 246, 0.7);
   }
+
   50% {
     box-shadow: 0 7px 20px -4px rgba(59, 130, 246, 0.9);
     transform: scale(1.03);
   }
+
   100% {
     box-shadow: 0 4px 14px -3px rgba(59, 130, 246, 0.7);
   }
@@ -86,15 +88,32 @@
 /* src/index.css */
 @layer components {
   .animate-scroll {
-    animation: scroll 20s linear infinite;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+  }
+
+  .animate-scroll-smooth {
+    animation: scroll-smooth 25s linear infinite;
+    will-change: transform;
   }
 
   @keyframes scroll {
-    from {
+    0% {
       transform: translateX(0);
     }
-    to {
-      transform: translateX(-100%);
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-smooth {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-50% - 10px));
     }
   }
 }
