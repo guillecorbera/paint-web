@@ -1,0 +1,28 @@
+import { promises as fs } from "fs";
+import path from "path";
+
+const SERVICES_FILE = path.join(
+  process.cwd(),
+  "server",
+  "data",
+  "services.json",
+);
+
+const readServices = async () => {
+  const data = await fs.readFile(SERVICES_FILE, "utf8");
+  return JSON.parse(data);
+};
+
+export default async function handler(req, res) {
+  if (req.method === "GET") {
+    try {
+      const services = await readServices();
+      return res.status(200).json(services);
+    } catch (error) {
+      console.error("Error reading services:", error);
+      return res.status(500).json({ message: "Error fetching services" });
+    }
+  }
+
+  return res.status(405).json({ message: "Method not allowed" });
+}
