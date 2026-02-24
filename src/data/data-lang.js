@@ -110,29 +110,32 @@ export const translations = {
 
       webDesign: "Diseño Web",
       developerName: "Guillermo Martínez",
-      phone: "+34 911 123 567",
-      email: "guille.mtz@example.com",
+      phoneLabel: "Teléfono",
+      phone: "+34 663 41 41 35",
+      emailLabel: "Email",
+      email: "guillecorbera@gmail.com",
       whatsapp: "Escríbeme por WhatsApp",
+      sendMessage: "Enviar mensaje",
       bio: "Deseo ayudarte a destacar en el mundo digital y lograr que tu negocio se conecte de manera auténtica con tus clientes. Sé que, como emprendedor o pequeña empresa, cada decisión cuenta. Por eso, creo que una presencia web efectiva no solo debe abrir puertas, sino construir relaciones reales y duraderas con quienes confían en tu marca.",
       modal: {
         legalNotice: {
           title: "Aviso Legal",
           body: `
               <strong>Titularidad del sitio web:</strong>
-              - Denominación social: Pinturas Pro
-              - NIF/CIF: [indicar]
-              - Domicilio social: [indicar]
-              - Teléfono: [indicar]
-              - Email: [indicar]
+              - Denominación social: CCS Consultores S.L.
+              - NIF/CIF: B23844863
+              - Domicilio social: C/Casanova 17, , 1º 2ª, 08757 Corbera de Llobregat, Barcelona
+              - Teléfono: +34 662 68 00 47
+              - Email: contacto@ccspavimentoindustrial.es
 
               <strong>Condiciones de uso</strong>
               El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación de las presentes condiciones. El usuario se compromete a utilizar el sitio web de forma adecuada, sin realizar actividades ilícitas, contrarias a la buena fe o que puedan dañar a terceros.
 
               <strong>Propiedad intelectual e industrial</strong>
-              Los contenidos, textos, imágenes, logotipos y diseño de este sitio web son propiedad de Pinturas Pro o de sus legítimos autores. Queda prohibida la reproducción, distribución, comunicación pública o modificación de dichos contenidos sin autorización expresa.
+              Los contenidos, textos, imágenes, logotipos y diseño de este sitio web son propiedad de CCS Consultores S.L. o de sus legítimos autores. Queda prohibida la reproducción, distribución, comunicación pública o modificación de dichos contenidos sin autorización expresa.
 
               <strong>Exclusión de responsabilidad</strong>
-              Pinturas Pro no se responsabiliza de los daños o perjuicios que puedan derivarse del uso de la información contenida en este sitio web, ni de los enlaces a sitios de terceros.
+              CCS Consultores S.L. no se responsabiliza de los daños o perjuicios que puedan derivarse del uso de la información contenida en este sitio web, ni de los enlaces a sitios de terceros.
               `,
         },
 
@@ -140,7 +143,7 @@ export const translations = {
           title: "Política de Privacidad",
           body: `<strong>Responsable del tratamiento</strong>
     
-                    <strong>Responsable:</strong> Pinturas Pro
+                    <strong>Responsable:</strong> CCS Consultores S.L.
                     <strong>Contacto:</strong> <a href="mailto:contacto@ccspavimentoindustrial.es" class="text-secondary-light hover:underline">contacto@ccspavimentoindustrial.es</a>
 
                     <strong>Finalidad del tratamiento</strong>
@@ -308,9 +311,12 @@ export const translations = {
 
       webDesign: "Disseny Web",
       developerName: "Guillermo Martínez",
-      phone: "+34 911 123 567",
-      email: "guille.mtz@example.com",
+      phoneLabel: "Telèfon",
+      phone: "+34 663 41 41 35",
+      emailLabel: "Email",
+      email: "guillecorbera@gmail.com",
       whatsapp: "Escriu-me per WhatsApp",
+      sendMessage: "Enviar missatge",
       bio: "Vull ajudar-te a destacar al món digital i fer que el teu negoci es connecti de manera autèntica amb els teus clients. Sé que, com a emprenedor o pyme, cada decisió compta. Per això, crec que una presència web efectiva no només ha d’obrir portes, sinó construir relacions reals i duradores amb qui confia en la teva marca.",
 
       modal: {
@@ -509,9 +515,12 @@ export const translations = {
 
       webDesign: "Web Design",
       developerName: "Guillermo Martínez",
-      phone: "+34 911 123 567",
-      email: "guille.mtz@example.com",
+      phoneLabel: "Phone",
+      phone: "+34 663 41 41 35",
+      emailLabel: "Email",
+      email: "guillecorbera@gmail.com",
       whatsapp: "Message me on WhatsApp",
+      sendMessage: "Send message",
       bio: "I want to help you stand out in the digital world and make your business connect authentically with your customers. I know that as an entrepreneur or small business, every decision matters. That’s why I believe an effective web presence should not only open doors but build real, lasting relationships with those who trust your brand.",
       modal: {
         legalNotice: {
