@@ -62,19 +62,21 @@ const Header = () => {
         id="navbar"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md`}
       >
-        <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
+        <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center">
           {/* Logo */}
           <a
             href="#home"
-            className="flex items-center gap-3 text-3xl font-display font-bold text-teal-600 dark:text-teal-400"
+            className="flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl md:text-3xl font-display font-bold text-teal-600 dark:text-teal-400 truncate"
             onClick={closeMobileMenu}
           >
             <img
               src="/images/logo.png"
               alt="Logo de Cantero Sanchez Consultores S.L."
-              className="h-14 w-auto object-contain"
+              className="h-10 sm:h-14 w-auto object-contain flex-shrink-0"
             />
-            Cantero Sanchez Consultores S.L.
+            <span className="hidden sm:inline">
+              CCS Consultores S.L.
+            </span>
           </a>
 
           {/* Menú Desktop */}

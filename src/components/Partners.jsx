@@ -19,9 +19,9 @@ const Partners = () => {
 
   return (
     /*     <section className="py-24 bg-white dark:bg-gray-900 overflow-hidden"> */
-    <section className="py-24 bg-gradient-to-b from-purple-50 to-pink-50 overflow-hidden">
-      <div className="container mx-auto px-6">
-        <h3 className="text-center text-lg font-semibold text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-12">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-purple-50 to-pink-50 overflow-hidden px-4 sm:px-0">
+      <div className="container mx-auto">
+        <h3 className="text-center text-sm sm:text-lg font-semibold text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-8 sm:mb-12 px-2">
           {t.partners?.title || "Trabajamos con las Mejores Marcas"}
         </h3>
 
@@ -30,7 +30,7 @@ const Partners = () => {
           <div
             className="flex animate-scroll-smooth"
             style={{
-              gap: "20px",
+              gap: "12px",
               width: "fit-content",
             }}
           >
@@ -38,8 +38,8 @@ const Partners = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-${index}`}
-                className={`flex-shrink-0 ${brand.color} text-white font-bold px-8 py-3 rounded-lg shadow-md text-center hover:scale-105 transition-transform`}
-                style={{ width: "180px" }}
+                className={`flex-shrink-0 ${brand.color} text-white font-bold px-4 sm:px-8 py-2 sm:py-3 rounded-lg shadow-md text-center hover:scale-105 transition-transform text-sm sm:text-base`}
+                style={{ width: "130px", minWidth: "130px" }}
               >
                 {brand.name}
               </div>
@@ -49,8 +49,8 @@ const Partners = () => {
             {brands.map((brand, index) => (
               <div
                 key={`brand-dup-${index}`}
-                className={`flex-shrink-0 ${brand.color} text-white font-bold px-8 py-3 rounded-lg shadow-md text-center hover:scale-105 transition-transform`}
-                style={{ width: "180px" }}
+                className={`flex-shrink-0 ${brand.color} text-white font-bold px-4 sm:px-8 py-2 sm:py-3 rounded-lg shadow-md text-center hover:scale-105 transition-transform text-sm sm:text-base`}
+                style={{ width: "130px", minWidth: "130px" }}
               >
                 {brand.name}
               </div>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1772395592399",
+    "name": "Guillermo",
+    "email": "guille-sofi@hotmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "fffffffffffffffffffffffffffffffffffffffffff",
+    "date": "2026-03-01T20:06:32.399Z",
+    "read": true
+  },
+  {
+    "id": "1772395752286",
+    "name": "Guillermo",
+    "email": "info@ccspavimentoindustrial.es",
+    "subject": "Mensaje desde formulario web",
+    "message": "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "date": "2026-03-01T20:09:12.286Z",
+    "read": false
+  },
+  {
+    "id": "1772396284082",
+    "name": "Guillermo",
+    "email": "guillecorbera@gmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "date": "2026-03-01T20:18:04.082Z",
+    "read": false
+  },
+  {
+    "id": "1772396625414",
+    "name": "Guillermo",
+    "email": "guillecorbera@gmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+    "date": "2026-03-01T20:23:45.414Z",
+    "read": false
+  },
+  {
+    "id": "1772397484532",
+    "name": "Guillermo",
+    "email": "guille-sofi@hotmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "asdasdasdasdasda",
+    "date": "2026-03-01T20:38:04.532Z",
+    "read": false
+  },
+  {
+    "id": "1772397801049",
+    "name": "Guillermo",
+    "email": "guille-sofi@hotmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "Necesito pintura urgente de mi salón",
+    "date": "2026-03-01T20:43:21.049Z",
+    "read": false
+  },
+  {
+    "id": "1772397995680",
+    "name": "Guillermo",
+    "email": "guillecorbera@gmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "Quiero un presupuesto para limpieza de jardín",
+    "date": "2026-03-01T20:46:35.680Z",
+    "read": false
+  },
+  {
+    "id": "1772398761992",
+    "name": "Guillermo",
+    "email": "guille-sofi@hotmail.com",
+    "subject": "Mensaje desde formulario web",
+    "message": "Quiero que me llamen al 55884455",
+    "date": "2026-03-01T20:59:21.992Z",
+    "read": false
+  }
+]

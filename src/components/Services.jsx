@@ -34,8 +34,16 @@ const Services = () => {
         id="services"
         className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
       >
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-xl text-gray-600">Cargando servicios...</p>
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-block">
+            <div className="animate-pulse space-y-4">
+              <div className="h-12 w-64 bg-gray-300 dark:bg-gray-600 rounded-lg mx-auto"></div>
+              <div className="h-4 w-96 bg-gray-200 dark:bg-gray-700 rounded mx-auto"></div>
+              <p className="text-base sm:text-lg text-gray-600 mt-8">
+                ⏳ Cargando servicios...
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -47,9 +55,20 @@ const Services = () => {
         id="services"
         className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
       >
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-xl text-red-600">{error}</p>
-          <div className="mt-4">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 mb-4">
+            {t.services.title}
+          </h2>
+          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg max-w-md mx-auto">
+            <p className="text-base sm:text-lg text-red-600 dark:text-red-400 mb-4">
+              ⚠️ {error}
+            </p>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6">
+              Asegúrate de ejecutar:{" "}
+              <code className="bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded">
+                pnpm run dev:all
+              </code>
+            </p>
             <button
               onClick={() => {
                 setError(null);
@@ -65,7 +84,7 @@ const Services = () => {
                   )
                   .finally(() => setLoading(false));
               }}
-              className="mt-2 inline-block px-4 py-2 bg-primary-light text-white rounded-lg"
+              className="mt-2 inline-block px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition"
             >
               Reintentar
             </button>
@@ -81,19 +100,19 @@ const Services = () => {
       id="services"
       className="py-24 bg-gradient-to-b from-red-50 to-orange-50"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-light dark:text-primary-dark">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-light dark:text-primary-dark">
             {t.services.title}
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-2">
             {t.services.desc}
           </p>
         </div>
 
         {/* Grid de Servicios */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
           {services.map((service, index) => (
             <div
               key={index}
@@ -102,7 +121,7 @@ const Services = () => {
               data-aos-delay={index * 100}
             >
               {/* Imagen del servicio */}
-              <div className="overflow-hidden h-64">
+              <div className="overflow-hidden h-48 sm:h-64">
                 <img
                   src={service.image}
                   alt={service.title[lang]}
@@ -111,25 +130,25 @@ const Services = () => {
               </div>
 
               {/* Contenido */}
-              <div className="p-8 flex-grow flex flex-col">
-                <h3 className="text-2xl font-bold font-display text-primary-light dark:text-white mb-2">
+              <div className="p-6 sm:p-8 flex-grow flex flex-col">
+                <h3 className="text-xl sm:text-2xl font-bold font-display text-primary-light dark:text-white mb-2">
                   {service.title[lang]}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400 mb-4 font-semibold">
+                <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-4 font-semibold">
                   {service.price[lang]}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 flex-grow mb-6">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 flex-grow mb-6">
                   {service.description[lang]}
                 </p>
 
                 {/* CTA */}
-                <div className="mt-auto flex justify-between items-center">
-                  <span className="text-sm text-secondary-light dark:text-secondary-dark font-medium">
+                <div className="mt-auto flex justify-between items-center gap-4">
+                  <span className="text-xs sm:text-sm text-secondary-light dark:text-secondary-dark font-medium">
                     ✔️ {t.services.included || "Incluye limpieza"}
                   </span>
                   <a
                     href="#contact"
-                    className="font-semibold text-primary-light hover:text-secondary-light dark:text-primary-dark dark:hover:text-secondary-dark transition-colors duration-300"
+                    className="font-semibold text-primary-light hover:text-secondary-light dark:text-primary-dark dark:hover:text-secondary-dark transition-colors duration-300 text-sm sm:text-base"
                   >
                     {t.hero.btn2} →
                   </a>

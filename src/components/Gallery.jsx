@@ -102,23 +102,23 @@ const Gallery = () => {
       id="gallery"
       className="py-24 bg-gradient-to-b from-yellow-50 to-green-50"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Encabezado */}
         <div className="text-center mb-16" data-aos="fade-down">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary dark:text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary dark:text-white px-2">
             {t.gallery.title}
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-2">
             {t.gallery.subtitle}
           </p>
         </div>
 
         {/* Grid de Miniaturas */}
-        <div className="columns-2 md:columns-3 gap-4 space-y-6">
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-3 sm:gap-4 space-y-3 sm:space-y-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-lg mb-4"
+              className="group relative overflow-hidden rounded-lg mb-3 sm:mb-4"
               data-aos="zoom-in-up"
             >
               <img
@@ -127,12 +127,12 @@ const Gallery = () => {
                 className="w-full h-auto object-cover cursor-pointer transition-transform duration-500 group-hover:scale-105"
                 onClick={() => openLightbox(index, "after")}
               />
-              <div className="absolute top-3 left-3 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded">
+              <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-black/60 text-white text-xs font-semibold px-2 py-1 rounded">
                 {t.gallery?.after}
               </div>
               <button
                 onClick={() => openLightbox(index, "before")}
-                className="absolute bottom-3 right-3 bg-secondary hover:bg-yellow-500 text-white text-sm font-medium px-3 py-1 rounded-full shadow-md transition"
+                className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 bg-secondary hover:bg-yellow-500 text-white text-xs sm:text-sm font-medium px-2 sm:px-3 py-1 rounded-full shadow-md transition"
               >
                 {t.gallery?.before || "Antes"}
               </button>
