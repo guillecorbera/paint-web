@@ -20,7 +20,18 @@ If you are developing a production application, we recommend using TypeScript wi
    - `VITE_EMAILJS_TEMPLATE_ID` - Template para emails al negocio
    - `VITE_EMAILJS_AUTORESPONSE_TEMPLATE_ID` - Template para confirmación al usuario
    - `VITE_CONTACT_TO_EMAIL` - Email del negocio que recibirá los mensajes
+   - `VITE_RECAPTCHA_SITE_KEY` - Site key de Google reCAPTCHA (frontend)
+   - `RECAPTCHA_SECRET_KEY` - Secret key de Google reCAPTCHA (backend)
+   - `RECAPTCHA_MIN_SCORE` - Opcional, solo para v3 (default `0.5`)
 3. Reinicia el servidor de Vite después de guardar `.env`.
+
+## Configurar captcha
+
+1. Crea una clave en Google reCAPTCHA para tu dominio (v2 checkbox o v3).
+2. Añade en tu entorno:
+   - `VITE_RECAPTCHA_SITE_KEY=...`
+   - `RECAPTCHA_SECRET_KEY=...`
+3. Reinicia frontend y backend (`pnpm run dev:all`).
 
 📖 **Ver [EMAILJS_SETUP.md](EMAILJS_SETUP.md) para instrucciones detalladas de configuración**
 

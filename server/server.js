@@ -1,6 +1,7 @@
 // server/server.js
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import { promises as fs } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -8,11 +9,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { authMiddleware, JWT_SECRET } from "./middleware/auth.js";
 
+dotenv.config();
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+const RECAPTCHA_MIN_SCORE = Number(process.env.RECAPTCHA_MIN_SCORE || "0.5");
 
 // Middleware
 app.use(cors());
@@ -81,6 +86,61 @@ async function writeMessages(messages) {
   }
 }
 
+// Validate captcha tokens server-side so bots cannot bypass frontend checks.
+async function verifyRecaptchaToken(token, remoteIp) {
+  if (!RECAPTCHA_SECRET_KEY) {
+    throw new Error("RECAPTCHA_SECRET_KEY is not configured");
+  }
+
+  const body = new URLSearchParams({
+    secret: RECAPTCHA_SECRET_KEY,
+    response: token,
+  });
+
+  if (remoteIp) {
+    body.append("remoteip", remoteIp);
+  }
+
+  const response = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body,
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to verify captcha token");
+  }
+
+  const verification = await response.json();
+
+  if (!verification.success) {
+    return {
+      valid: false,
+      reason: "Captcha invalid",
+      codes: verification["error-codes"] || [],
+    };
+  }
+
+  // For reCAPTCHA v3, score is provided; reject low-confidence requests.
+  if (
+    typeof verification.score === "number" &&
+    verification.score < RECAPTCHA_MIN_SCORE
+  ) {
+    return {
+      valid: false,
+      reason: "Captcha score too low",
+      score: verification.score,
+    };
+  }
+
+  return { valid: true };
+}
+
 // ============ PUBLIC ROUTES ============
 
 // GET all services (public)
@@ -96,11 +156,23 @@ app.get("/api/services", async (req, res) => {
 // POST contact message (public)
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, subject, message, captchaToken } = req.body;
 
     // Validate required fields
     if (!name || !email || !message) {
       return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    if (!captchaToken) {
+      return res.status(400).json({ message: "Captcha token is required" });
+    }
+
+    const captchaCheck = await verifyRecaptchaToken(captchaToken, req.ip);
+    if (!captchaCheck.valid) {
+      return res.status(403).json({
+        message: "Captcha verification failed",
+        detail: captchaCheck.reason,
+      });
     }
 
     const messages = await readMessages();
@@ -126,6 +198,11 @@ app.post("/api/contact", async (req, res) => {
     }
   } catch (error) {
     console.error("Error saving contact message:", error);
+    if (error.message === "RECAPTCHA_SECRET_KEY is not configured") {
+      return res.status(500).json({
+        message: "Captcha is not configured on the server",
+      });
+    }
     res.status(500).json({ message: "Error saving message" });
   }
 });
